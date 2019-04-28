@@ -33,17 +33,7 @@ App({
 
     },
 
-    // 跳转页面
-    gotoPage(name) {
-        let pageArr = getCurrentPages();
-        for (let i = 0; i < pageArr.length; i++) {
-            let route = pageArr[i].route.split('/').pop();
-            if (route == name) {
-                return pageArr.length - 1 - i;
-            }
-        }
-    },
-
+    // 登录授权
     getWxUiNew(callback, e) {
         let vm = this;
         if (!e.detail.userInfo) return;
@@ -115,74 +105,6 @@ App({
             }
         })
 
-    },
-
-    // 制造获取设备id
-    getDevice(callback) {
-        var t = new Date().getTime();
-
-        wx.getSystemInfo({
-            success: function(res) {
-                let str = md5(res.system + t);
-                if (!wx.getStorageSync('deviceId')) {
-                    wx.setStorageSync('deviceId', str);
-                }
-                callback ? callback(str) : '';
-            }
-        })
-
-    },
-
-    // 获取搜索栏的曝光活动
-    getSearchActivity(callback) {
-        wx.request({
-            url: _.host.baseApi + '/api/get_search_bg_activity',
-            method: 'get',
-            data: {},
-            header: {
-                'content-type': 'application/json'
-            },
-            success: function(res) {
-
-                let data = res.data;
-                if (data.code == 1) {
-                    callback ? callback(data.data) : '';
-                }
-
-            },
-            fail: function(res) {
-
-            }
-        })
-    },
-    
-  // 收集formid
-  collectionFormId(formId) {
-
-    let vm = this,
-        params = {},
-        userData = wx.getStorageSync('userData');
-
-    if (!userData)  return;
-    if (!formId || formId == 'the formId is a mock one') return;
-
-    params.token = userData.token;
-    params.form_id = formId;
-
-    $.ajax({
-        url: _.otherHost.draw + '/api/luckydraw/collectformid',
-        method: 'post',
-        data: params
-    }).then(function(data){
-
-        if (data.code == 1) {
-          console.log(data,'formId');
-        }
-
-    }).catch(function(err){
-       console.log(err)
-    })
-   
-  }
+    }
     
 })

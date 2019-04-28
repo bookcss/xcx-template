@@ -1,12 +1,12 @@
 
-import getPushlishParams from './sign'
+import getPublicParams from './sign'
 
 class Request {
 
     /**
      * 默认属性
      */
-    constructor(x, y) {
+    constructor() {
         this.data = {}
         this.method = 'GET'
     }
@@ -17,14 +17,13 @@ class Request {
      */
     ajax(options = {}){
 
-
         options.data ?  '' : options.data = this.data
         options.method ?  '' : options.method = this.method
 
         return new Promise((resolve, reject) => {
 
             // 获取公共参数（如果不需要签名，可跳过次步骤）
-            getPushlishParams(options.data).then(function(resultParams){
+            getPublicParams(options.data).then(function(resultParams){
 
                 wx.request({
                     url: options.url,

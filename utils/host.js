@@ -1,29 +1,24 @@
 
 
-/**
- * 测试、生成环境域名
- * @return Object
- */
-function getHost(){
 
-    let isDev = false;
-    let host = {
-      dev : {
-        // 商城API
-        baseApi : 'https://testpanda.huodao.hk',
-        // 抽奖api
-        drawApi :  'https://testact.zhaoliangji.com'
-      },
-      pro : {
-        // 商城API
-        baseApi : 'https://panda.huodao.hk',
-        // 抽奖api
-        drawApi :  'https://act.zhaoliangji.com'
-      }
-    }
+// 是否开发环境
+let isDev = false;
 
-    return isDev ? host.dev : host.pro
-    
+// 开发环境域名
+let dev = {
+  // 商城API
+  baseApi : 'https://testpanda.huodao.hk',
+  // 抽奖api
+  drawApi :  'https://testact.zhaoliangji.com'
 }
 
-export default getHost()
+// 线上环境域名
+let pro = {
+  // 商城API
+  baseApi : 'https://panda.huodao.hk',
+  // 抽奖api
+  drawApi :  'https://act.zhaoliangji.com'
+}
+
+
+export default isDev ? dev : pro

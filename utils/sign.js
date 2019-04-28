@@ -6,7 +6,7 @@ import md5 from './md5'
  * 获取公共参数
  * @return Object
  */
-function _getPushishParams(){
+function _getPublicParams(){
 
     let [vm, params] = [this, {}];
     const res = wx.getSystemInfoSync();
@@ -59,9 +59,9 @@ function buildParams(params){
  * 将公共参数生成签名
  * @return Object
  */
-function getPushlishParams(data){
+function getPublicParams(data){
     return new Promise((resolve, reject) => {
-        _getPushishParams().then(function(params){
+        _getPublicParams().then(function(params){
             // 公共参数
             for (let key in params) {
               data[key] = params[key];
@@ -75,4 +75,4 @@ function getPushlishParams(data){
     })
 }
 
-export default getPushlishParams
+export default getPublicParams

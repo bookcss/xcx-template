@@ -53,7 +53,7 @@ let pageObj = {
 
     let vm = this
 
-    app.getDevice();
+    _.getDevice();
 
     vm.init();
 
@@ -73,11 +73,7 @@ let pageObj = {
       }
     })
 
-    app.getSearchActivity(function(data) {
-      vm.setData({
-        searchActivityData: data
-      })
-    })
+ 
     wx.showShareMenu({
       withShareTicket: true
     })
