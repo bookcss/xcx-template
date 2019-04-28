@@ -22,12 +22,7 @@ let pageObj = {
         wx.showShareMenu({
           withShareTicket: true
         })
-
-         app.getSearchActivity(function(data){
-            vm.setData({
-                searchActivityData:data
-            })
-        })
+   
         
     },
    
@@ -43,7 +38,7 @@ let pageObj = {
         urlParams.v = '6.0.0';
         
         wx.request({
-            url: _.host + '/api/product/new_get_product_cate_v1',
+            url: _.host.baseApi + '/api/product/new_get_product_cate_v1',
             method: 'get',
             data: urlParams,
             header: {

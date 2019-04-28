@@ -11,7 +11,9 @@ App({
     },
 
     onShow: function(ops) {
+
         let vm = this;
+        
         // 获取群分享信息
         if (ops.scene == 1036 || ops.scene == 1044) {
             this.globalData.shareTickets = ops.shareTicket;

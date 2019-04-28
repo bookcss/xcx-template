@@ -1,6 +1,4 @@
 
-
-
 // 是否开发环境
 let isDev = false;
 
@@ -19,6 +17,5 @@ let pro = {
   // 抽奖api
   drawApi :  'https://act.zhaoliangji.com'
 }
-
 
 export default isDev ? dev : pro

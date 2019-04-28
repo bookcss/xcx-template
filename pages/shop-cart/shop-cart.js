@@ -254,7 +254,7 @@ Page({
             success: function(res) {
                 if (res.confirm) {
                   wx.request({
-                        url: _.host + '/api/shopcart/delete_from_selected_multi',
+                        url: _.host.baseApi + '/api/shopcart/delete_from_selected_multi',
                         method: 'POST',
                         data: urlParams,
                         header: {
@@ -325,7 +325,7 @@ Page({
           isData: true
       })
       wx.request({
-            url: _.host + '/api/shopcart/get_shop_cart_list',
+            url: _.host.baseApi + '/api/shopcart/get_shop_cart_list',
             method: 'get',
             data: urlParams,
             header: {
@@ -505,7 +505,7 @@ Page({
                  console.log(res)
                 if (res.confirm) {
                     wx.request({
-                        url: _.host + '/api/shopcart/delete_from_selected_multi',
+                        url: _.host.baseApi + '/api/shopcart/delete_from_selected_multi',
                         method: 'POST',
                         data: urlParams,
                         header: {

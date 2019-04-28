@@ -125,7 +125,7 @@ Page({
             isData: true
         })
         wx.request({
-            url: _.host + '/api/account/shaidan/new_review_list',
+            url: _.host.baseApi + '/api/account/shaidan/new_review_list',
             method: 'get',
             data: urlParams,
             header: {
@@ -232,7 +232,7 @@ Page({
         }
 
         wx.request({
-            url: _.host + '/api/account/shaidan/get_float_data',
+            url: _.host.baseApi + '/api/account/shaidan/get_float_data',
             method: 'get',
             data: urlParams,
             header: {
@@ -303,7 +303,7 @@ Page({
 
         urlParams.token = vm.data.userData.token;
         wx.request({
-            url: _.host + '/api/account/shaidan/get_shaidan_list',
+            url: _.host.baseApi + '/api/account/shaidan/get_shaidan_list',
             method: 'get',
             data: urlParams,
             header: {
@@ -369,7 +369,7 @@ Page({
         urlParams.review_id = reviewid;
         urlParams.type = thumbstype;
         wx.request({
-            url: _.host + '/api/account/shaidan/add_userful',
+            url: _.host.baseApi + '/api/account/shaidan/add_userful',
             method: 'post',
             data: urlParams,
             header: {

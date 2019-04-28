@@ -69,7 +69,7 @@ Page({
         }
         urlParams.token = vm.data.userData.token;
         wx.request({
-            url: _.host + '/api/account/setting/get_remind_counts',
+            url: _.host.baseApi + '/api/account/setting/get_remind_counts',
             method: 'get',
             data: urlParams,
             header: {
@@ -97,7 +97,7 @@ Page({
         }
         urlParams.token = vm.data.userData.token;
         wx.request({
-            url: _.host + '/api/account/order/all_order_count',
+            url: _.host.baseApi + '/api/account/order/all_order_count',
             method: 'get',
             data: urlParams,
             header: {
