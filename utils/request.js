@@ -12,7 +12,7 @@ class Request {
     }
    
     /**
-     * GET或者POST请求
+     * GET、POST请求
      * @return Promise
      */
     ajax(options = {}){
