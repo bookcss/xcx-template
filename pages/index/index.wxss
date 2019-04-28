@@ -1,5 +1,4 @@
 /*======== index ========*/
-@import "../../wxss/gift.wxss";
 
 @import '../activity-list/activity-list.wxss'
 
