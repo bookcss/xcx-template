@@ -2,22 +2,7 @@
 
 <!-- <scroll-view scroll-y="{{isScroll}}" bindscrolltoupper="refresh" bindscrolltolower="onLoadBottm" enable-back-to-top="true" style="height: 100vh;"> -->
 <view class="page-index {{searchOpen ? 'hidden-scroll' : ''}}">
-  <!-- 搜索框 -->
-  <view class="search-warpper">
-    <view class="search-box ">
-      <view class="search-input ">
-        <ul>
-          <li bindtap="openSearch">
-            <view class="default-input">
-              <image src="../../images/commodity/search-grey.png" alt="" style="width: 13px;" mode="widthFix" />
-              <text>{{searchActivityData ? searchActivityData.activity_title : '搜你想要的一切'}}</text>
-            </view>
-            <input type="text" disabled="disabled" />
-          </li>
-        </ul>
-      </view>
-    </view>
-  </view>
+
 
   <view class="app-banner">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="rgba(255,255,255,1)">

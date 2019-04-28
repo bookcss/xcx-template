@@ -1,22 +1,5 @@
 <view class="sort ">
     
-    <!-- 搜索框 -->
-    <view class="search-warpper" >
-        <view class="search-box " >
-            <view class="search-input ">
-                <ul>
-                    <li bindtap="openSearch" >
-                        <view class="default-input">
-                            <image src="../../images/commodity/search-grey.png" alt="" style="width: 13px;" mode="widthFix" />
-                            <text>{{searchActivityData ? searchActivityData.activity_title : '搜你想要的一切'}}</text>
-                        </view>
-                        <input type="text" disabled="disabled" />
-                    </li>
-                </ul>
-            </view>
-        </view>
-    </view>
-
     <view class="layout-box clearfix">
         <view class="layout-sidebar">
             <ul>
