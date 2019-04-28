@@ -1,0 +1,68 @@
+<view class="search-warpper" >
+    <view class="search-box " >
+
+        <!-- 未点击触搜索框样式 -->
+        <view class="search-input " hidden="{{searchOpen}}">
+            <ul>
+                <li bindtap="openSearch" >
+                    <view hidden="{{!searchVal}}">
+                        <image class="search-icon" src="../../images/commodity/search-grey.png" alt="" style="width: 13px;" mode="widthFix"  />
+                        <view class="search-label" catchtap="delLabel">
+                            <text class="ellipsis">{{searchVal}}</text> <text class="close-label">x</text>
+                        </view>
+                    </view>
+                    <view class="default-input" hidden="{{searchVal}}">
+                        <image src="../../images/commodity/search-grey.png" alt="" style="width: 13px;" mode="widthFix" />
+                        <text>搜你想要的一切</text>
+                    </view>
+                    <input type="text" disabled="disabled" />
+                </li>
+            </ul>
+        </view>
+
+        <!-- 点击触发搜索框 -->
+        <view class="search-input open" hidden="{{!searchOpen}}">
+            <ul>
+                <li>
+                    <view>
+                        <image class="search-icon" src="../../images/commodity/search-grey.png" alt="" style="width: 13px;" mode="widthFix" />
+                    </view>
+                    <input type="text" value="{{searchValTemp}}" focus="{{searchOpen}}" bindconfirm="confirmSearch" bindinput="bindinput" placeholder="{{searchActivityData.activity_title}}" />
+                   <!--  <view class="close-icon" wx:if="{{searchValTemp}}" catchtap="clearVal" >
+                        <image src="../../images/commodity/close-icon.png" alt="" style="width: 15px;" mode="widthFix" />
+                    </view> -->
+                </li>
+                <li>
+                    <text class="a" bindtap="cancelSearch">取消</text>
+                </li>
+            </ul>
+        </view>
+
+        <view class="search-content" hidden="{{!searchOpen}}">
+            <view class="module" wx:if="{{searchHistroyData}}">
+                <view class="module-title">
+                    <view class="h1">历史记录</view>
+                </view>
+                <view class="module-content">
+                    <text class="label" wx:for="{{searchHistroyData}}" wx:for-item="item" wx:key="index" bindtap="confirmLabel" data-name="{{item}}">{{item}}</text>
+                </view>
+                <view class="clear-history" bindtap="clearHistroy">
+                    清空搜索记录
+                </view>
+            </view>
+            <view class="module" wx:if="{{hotSearchData.length > 0}}">
+                <view class="module-title">
+                    <view class="h1">热门搜索</view>
+                </view>
+                <view class="module-content">
+                    <text class="label" wx:for="{{hotSearchData}}" wx:for-item="item" wx:key="index" bindtap="confirmLabel" data-name="{{item.keyword}}">{{item.keyword}}</text>
+                </view>
+            </view>
+            <view class="search-list" wx:if="{{searchAutoData.length > 0}}">
+                <ul>
+                    <li wx:for="{{searchAutoData}}" wx:for-item="item" wx:key="index" bindtap="searchAutoConfirm" data-name="{{item.value}}" data-type="{{item.type}}">{{item.value}}</li>
+                </ul>
+            </view>
+        </view>
+    </view>
+</view>

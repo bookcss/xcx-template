@@ -1,0 +1,32 @@
+<!-- 地址选择 -->
+<view wx:if="{{isOpen}}" class="area-box" catchtap="closeSelectArea" data-index='0'>
+
+    <view class="area-content " catchtap="closeSelectArea" data-index='1'>
+        <view class="area-tit">
+            选择省市区
+            <view class="area-close"  catchtap="closeSelectArea" data-index='0'>✖</view>
+        </view>
+        <view class="area-list">
+            <view class="area-tab clearfix">
+                <view  class="li {{areaLevel == 0 ? 'active' : ''}}" bindtap="areaChange" data-level="0">{{areaSelectObj.province.name ? areaSelectObj.province.name : '选择省份'}}</view>
+                <view class="li {{areaLevel == 1 ? 'active' : ''}}" bindtap="areaChange" data-level="1" wx:if="{{areaSelectObj.city.name || areaLevel == 1}}">{{areaSelectObj.city.name ? areaSelectObj.city.name : '选择城市'}}</view>
+                <view class="li {{areaLevel == 2 ? 'active' : ''}}" bindtap="areaChange" data-level="2" wx:if="{{areaSelectObj.area.name || areaLevel == 2}}">{{areaSelectObj.area.name ? areaSelectObj.area.name : '选择区/县'}}</view>
+            </view>
+            <view class="area-list" id="area-list">
+                <view class="li {{areaSelectObj.province.code == item.area_id ? 'active' : ''}}" wx:if="{{areaLevel == 0}}"  wx:for="{{province}}"  wx:for-item="item" wx:key="index" bindtap="selectArea" data-type="1" data-pid="{{item.area_id}}" data-name="{{item.area_name}}">
+                    {{item.area_name}}
+                  <image class="select" src="../../images/screen_icon_check@2x.png" alt="" mode="widthFix"  wx:if="{{areaSelectObj.province.code == item.area_id}}" style="width: 15px;" ></image>
+                </view>
+                <view class="li {{areaSelectObj.city.code == item.area_id ? 'active' : ''}}" wx:if="{{areaLevel == 1}}" wx:for="{{city}}"  wx:for-item="item" wx:key="index"  bindtap="selectArea" data-type="2" data-pid="{{item.area_id}}" data-name="{{item.area_name}}">
+                  {{item.area_name}}
+                  <image class="select" src="../../images/screen_icon_check@2x.png" alt="" wx:if="{{areaSelectObj.city.code == item.area_id}}"  mode="widthFix" style="width: 15px;" ></image>
+                </view>
+                <view class="li {{areaSelectObj.area.code == item.area_id ? 'active' : ''}}" wx:if="{{areaLevel == 2}}"  wx:for="{{area}}"  wx:for-item="item" wx:key="index"  bindtap="selectArea" data-type="3" data-pid="{{item.area_id}}" data-name="{{item.area_name}}">
+                  {{item.area_name}}
+                  <image class="select" src="../../images/screen_icon_check@2x.png" alt="" wx:if="{{areaSelectObj.area.code == item.area_id}}"  mode="widthFix" style="width: 15px;" ></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    
+</view>

@@ -1,0 +1,61 @@
+<view class="sort ">
+    
+    <!-- 搜索框 -->
+    <view class="search-warpper" >
+        <view class="search-box " >
+            <view class="search-input ">
+                <ul>
+                    <li bindtap="openSearch" >
+                        <view class="default-input">
+                            <image src="../../images/commodity/search-grey.png" alt="" style="width: 13px;" mode="widthFix" />
+                            <text>{{searchActivityData ? searchActivityData.activity_title : '搜你想要的一切'}}</text>
+                        </view>
+                        <input type="text" disabled="disabled" />
+                    </li>
+                </ul>
+            </view>
+        </view>
+    </view>
+
+    <view class="layout-box clearfix">
+        <view class="layout-sidebar">
+            <ul>
+                <li wx:for="{{productData}}" wx:for-item="item" wx:key="index" class="{{navIndex == index ? 'active' : ''}}" bind:touchstart="changeNav" data-index="{{index}}">
+                    <a>
+                        {{item.type_name == '手机' ? 'iPhone' : item.type_name}}
+                    </a>
+                </li>
+            </ul>
+        </view>
+        
+        <!-- <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" class="layout-content" > -->
+            <view class="layout-content">
+                <view class="layout-content-banner" bindtap="gotoActivity" data-url="{{productInfo.activity_jump_url}}">
+                    <image src="{{productData[navIndex].type_url}}?imageView2/0/w/640" mode="widthFix" />
+                </view>
+                <view class="layout-content-tit" wx:if="{{navIndex != 0}}">
+                    <span>{{productData[navIndex].type_name == '手机' ? 'iPhone' : productData[navIndex].type_name}} </span>
+                </view>
+
+                <view class="ranking-list" wx:if="{{productData[navIndex].type_id == 99999}}">
+                    <view class="ranking-banner" wx:for="{{productInfo.info}}" wx:for-item="item" wx:key="index" bindtap="gotoActivity" data-url="{{item.jump_link}}" style="padding-bottom: {{100/item.banner_proportion}}%">
+                        <image src="{{item.img_url}}?imageView2/0/w/640" mode="widthFix" />
+                    </view>
+                </view>
+                <ul class="product-list clearfix"   wx:if="{{productData[navIndex].type_id != 99999}}">
+                    <li class="product-list-li" wx:for="{{productInfo.info}}" wx:for-item="item" wx:key="index">
+                        <navigator class="product" url="../commodity/commodity?typeId={{productData[navIndex].type_id}}&brandId={{item.brand_id}}&modelId={{item.model_id}}&name={{item.model_name || item.brand_name}}" wx:if="{{productData[navIndex].type_id != 888}}">
+                            <image src="{{item.model_url || item.brand_url}}?imageView2/0/w/200" mode="aspectFit" lazy-load="true"/>
+                            <text class="title-2">{{item.model_name || item.brand_name}}</text>
+                        </navigator>
+
+                        <navigator class="product" url="../parts/parts?id={{item.pcid}}"  wx:if="{{productData[navIndex].type_id == 888}}">
+                            <image src="{{item.model_url || item.brand_url}}?imageView2/0/w/200" mode="aspectFit" />
+                            <text class="title-2">{{item.model_name || item.brand_name}}</text>
+                        </navigator>
+                    </li>
+                </ul>
+            </view>
+        <!-- </scroll-view> -->
+    </view>
+</view>

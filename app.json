@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/list/list",
+    "pages/sort/sort",
+    "pages/shop-cart/shop-cart"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "找靓机",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F5F5",
+    "backgroundTextStyle": "dark",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon/tab_icon_home_default-@2x.png",
+        "selectedIconPath": "images/icon/tab_icon_home_pressed@2x.png"
+      },
+      {
+        "pagePath": "pages/sort/sort",
+        "text": "分类",
+        "iconPath": "images/icon/tab_icon_assortment_default@2x.png",
+        "selectedIconPath": "images/icon/tab_icon_assortment_pressed@2x.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "晒单",
+        "iconPath": "images/icon/tab_icon_evaluate_default@2x.png",
+        "selectedIconPath": "images/icon/tab_icon_evaluate_pressed@2x.png"
+      },
+      {
+        "pagePath": "pages/shop-cart/shop-cart",
+        "text": "购物车",
+        "iconPath": "images/icon/tab_icon_shoppingcar_default.png",
+        "selectedIconPath": "images/icon/tab_icon_shoppingcar_pressed.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人",
+        "iconPath": "images/icon/tab_icon_personal_default@2x.png",
+        "selectedIconPath": "images/icon/tab_icon_personal_pressde@2x.png"
+      }
+    ],
+    "selectedColor": "#ff2600",
+    "borderStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 30000,
+    "connectSocket": 30000,
+    "uploadFile": 30000,
+    "downloadFile": 30000
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxd775de015d094191"
+  ],
+  "debug": true
+}

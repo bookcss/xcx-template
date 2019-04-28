@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "新增地址",
+    "disableScroll": true,
+    "usingComponents":{
+    	"select-address":"../../component/select-address/select-address"
+    }
+}

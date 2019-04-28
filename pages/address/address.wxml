@@ -1,0 +1,51 @@
+<view class="user-address" style="padding-bottom: 51px;">
+    <view class="address-list-box" >
+        <view class="address-list" wx:for="{{addressList}}" wx:for-item="item" wx:key="index">
+            <view class="address-content" bindtap="changeAddress" data-id="{{item.address_book_id}}" data-index="{{index}}">
+                <view class="address-name">
+                    {{item.address_name}} 
+
+                    <view class="address-phone">{{item.address_mobile_phone}}</view> 
+                </view>
+                <view class="address-detail">
+                    {{item.address_state}} {{item.address_city}} {{item.address_county}} {{item.address_street}}
+                </view>
+            </view>
+            <ul class="address-operation" >
+                <li bindtap="changeDefaultAddress" data-id="{{item.address_book_id}}" data-index="{{index}}" wx:if="{{!productId}}">
+                    <label>
+                        <image src="../../images/address/checkbox-active.png" alt="" mode="widthFix"   wx:if="{{item.is_default == 1}}" />
+                        <image src="../../images/address/checkbox-default.png" alt="" mode="widthFix"  wx:if="{{item.is_default != 1}}"/>
+                        <span>设为默认</span>
+                    </label>
+                </li>
+
+                <li>
+                    <navigator class="opertaion-btn" hover-class="none" url="../address-update/address-update?addressId={{item.address_book_id}}&productId={{productId}}" open-type="redirectTo" data-id="{{item.address_book_id}}" >
+                        <image src="../../images/address/edit-icon.png" alt="" mode="widthFix"  />
+                        <span>编辑</span>
+                    </navigator>
+
+                    <a class="opertaion-btn" bindtap="del" data-id="{{item.address_book_id}}" data-index="{{index}}"  wx:if="{{!productId}}">
+                        <image src="../../images/address/del-icon.png" alt="" mode="widthFix"  />
+                       <span>删除</span>
+                    </a>
+                </li>
+            </ul>
+        </view>
+
+        <view class="operation fixed">
+           
+            <navigator hover-class="none" url="../address-update/address-update?productId={{productId}}" open-type="redirectTo" class="operation-btn" >
+              新建地址
+            </navigator>
+        </view>
+
+        
+    </view>
+    <view class="no-data" wx:if="{{addressList.length <= 0 && isData}}">
+        <image src="../../images/img_dress@2x.png" alt="" mode="widthFix"  style="width:50%;"/>
+        <view class="sum">还没有添加任何地址</view>
+      
+    </view>
+</view>

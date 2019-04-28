@@ -1,0 +1,147 @@
+/*====== Progress ========*/
+.progress-box {
+	padding: 45rpx 0;
+}
+
+.progress {
+	position: relative;
+	height: 8rpx;
+	line-height: 8rpx;
+	background-color: #EDEDED;
+}
+
+.progress .bar {
+	width: 0%;
+	height: 100%;
+	padding-right: 5px;
+	color: #fff;
+	font-size: 12px;
+	text-align: right;
+	background: #FF4555;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-transition: width 0.6s ease;
+	-o-transition: width 0.6s ease;
+	-webkit-transition: width 0.6s ease;
+	transition: width 0.6s ease;
+}
+
+.progress .bar.bar-danger {
+	background: #FF4555;
+}
+
+.progress .price-stage {
+	position: absolute;
+	bottom: -40rpx;
+	color:#4a4a4a;
+	font-size: 28rpx;
+}
+.progress .price-stage.active{
+	color:#FF4555;
+}
+.progress .range-circle .range-circle-li {
+	display: block;
+	position: absolute;
+	top: 50%;
+	width: 16rpx;
+	height: 16rpx;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	border-radius: 50%;
+	background-color: #EDEDED;
+}
+
+.progress .range-circle .range-circle-li.active {
+	background-color: #FF4555;
+}
+
+/*提示工具*/
+.tip {
+	position: absolute;
+	top: -70rpx;
+	z-index: 87;
+	font-size: 24rpx;
+	word-break: normal;
+	word-spacing: normal;
+	word-wrap: normal;
+	white-space: normal;
+}
+
+.tip{
+	padding: 5px 0;
+}
+
+.tip.top .tip-arrow {
+	bottom: 0;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px 5px 0;
+	border-top-color: #FF4555;
+
+}
+
+.tip.left .tip-arrow {
+	bottom: 1px;
+	left:1px;
+	border-width: 5px 5px 0;
+	border-top-color: #FF4555;
+}
+.tip.right .tip-arrow {
+	bottom: 1px;
+	right:1px;
+	border-width: 5px 5px 0;
+	border-top-color: #FF4555;
+}
+
+
+.tip-inner {
+	padding:15rpx 8rpx;
+	color:#fff;
+	text-align:center;
+	background-color:#FF4555;
+	border-radius:4rpx;
+	font-size:22rpx;
+
+}
+
+.tip-inner.tip-other {
+	padding: 15rpx 0;
+	color: #FF4555;
+	background-color: transparent!important;
+	font-weight: 700;
+}
+
+.tip-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+}
+
+/*已经结束的后的样式*/
+.progress.progress-end{
+	background-color: #EDEDED;
+}
+.progress.progress-end .bar{
+	background-color: #D1D1DD;
+}
+.progress.progress-end .range-circle .range-circle-li{
+	background-color: #EDEDED;
+}
+.progress.progress-end .range-circle .range-circle-li.active{
+	background-color: #D1D1DD;
+}
+.progress.progress-end .price-stage{
+	color: #D1D1DD;
+}
+.progress.progress-end  .tip .tip-arrow{
+	border-top-color: #D1D1DD;
+}
+.progress.progress-end  .tip-inner {
+	background-color: #D1D1DD;
+}
+.progress.progress-end .tip-inner.tip-other{
+	color: #D1D1DD;
+}

@@ -1,0 +1,14 @@
+<!--component/fixed-icon/fixed-icon.wxml-->
+<view class="fixed-box {{isTab ? 'isTab' : ''}}" wx:if="{{(top || home || service)}}">
+  <view bindtap='backToTop' wx:if="{{top}}">
+    <image class='top' mode="widthFix" src='../../images/home_top.png'></image>
+  </view>
+  <view bindtap='goHome' wx:if="{{home}}">
+    <image class='top' mode="widthFix" src='../../images/home.png'></image>
+  </view>
+  <view>
+    <button open-type="contact" show-message-card="true" wx:if="{{service}}">
+      <image class='top' src="../../images/home_service.png" alt="" mode="widthFix" />
+    </button>
+  </view>
+</view>

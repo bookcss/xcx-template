@@ -1,0 +1,3 @@
+<view class="prompt" hidden="{{isfull}}">
+    <span>别扯了，到底了啊</span>
+</view>

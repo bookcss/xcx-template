@@ -1,0 +1,143 @@
+
+.user-address{
+  padding-bottom: 67px;
+  border-top:1px solid #f5f4f4;
+  box-sizing: border-box;
+}
+.user-address .address-list-box .address-list {
+  margin-bottom: 16rpx;
+  background-color: #fff;
+  padding: 0 32rpx;
+  font-size: 28rpx;
+}
+.user-address .address-list-box .address-list .address-content {
+  padding: 16px 0;
+  color: #333;
+  border-bottom: 1px solid #EFEFEF;
+
+}
+.user-address .address-list-box .address-list .address-content .address-name{
+  position: relative;
+  font-size: 34rpx;
+}
+.user-address .address-list-box .address-list .address-content .address-phone{
+  position: absolute;
+  top:50%;
+  right: 0;
+  transform:translateY(-50%);
+  -webkit-transform:translateY(-50%);
+}
+.user-address .address-list-box .address-list .address-content .address-detail {
+  margin-top: 8px;
+  color: #999;
+  font-size: 32rpx;
+}
+.user-address .address-list-box .address-list .address-operation {
+  display: -webkit-flex;
+  display: flex;
+  padding: 24rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.user-address .address-list-box .address-list .address-operation image{
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+.user-address .address-list-box .address-list .address-operation li {
+  -webkit-flex: 1;
+  flex: 1;
+  font-size:28rpx;
+}
+.user-address .address-list-box .address-list .address-operation li input {
+  margin-right: 3px;
+}
+.user-address .address-list-box .address-list .address-operation li .opertaion-btn
+{
+  display: inline-block;
+  margin-left: 10px;
+  color: #999;
+  vertical-align: middle;
+}
+.user-address .address-list-box .address-list .address-operation li i{
+  margin-right: 5px;
+}
+.user-address .address-list-box .address-list .address-operation li i,
+.user-address .address-list-box .address-list .address-operation li span {
+  vertical-align: middle;
+  color:#666;
+}
+.user-address .address-list-box .address-list .address-operation li:last-child {
+  text-align: right;
+}
+
+.user-address.add-address {
+  min-height: 100vh;
+  background-color: #fff;
+}
+.user-address.add-address .address-form {
+  margin: 0 14px;
+}
+.user-address.add-address .address-form .address-group {
+  display: -webkit-flex;
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.user-address.add-address .address-form .address-group label {
+  float:left;
+  width:80px;
+  margin:0 10px 0 0;
+  color:#000;
+  font-size:34rpx;
+  line-height:38px;
+
+
+}
+.user-address.add-address .address-form .address-group .address-control {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.user-address.add-address .address-form .address-group .address-control input,
+.user-address.add-address .address-form .address-group .address-control .input{
+  height: 38px;
+  line-height: 38px;
+  font-size: 34rpx;
+  color:#333;
+}
+.user-address.add-address .address-form .address-group .address-control input,
+.user-address.add-address .address-form .address-group .address-control textarea {
+  width: 100%;
+  font-size: 34rpx;
+  color:#333;
+}
+.user-address.add-address .address-form .address-group .address-control textarea{
+  height: 60px;
+}
+
+/*底部浮动按钮*/
+.operation {
+  padding:6px 16px;
+  background-color: #fff;
+  border-top:1px solid #f8f8f8;
+}
+.operation.fixed{
+  position:fixed;
+   left:0;
+   right: 0;
+   bottom:0;
+   z-index: 99;
+}
+.operation .operation-btn {
+  display: block;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  background-color: #FF2600;
+  color:#fff;
+  font-size: 36rpx;
+  border-radius: 25px;
+}

@@ -1,0 +1,104 @@
+/*======== sort ========*/
+
+.layout-box{
+	display: flex;
+	background:#fff;
+	height: -webkit-calc(100vh - 45px);
+	height: -moz-calc(100vh - 45px);
+	height: calc(100vh - 45px);
+	overflow: hidden;
+}
+.layout-box .layout-sidebar{
+    color: #666;
+    width: 80px;
+	height: -webkit-calc(100vh - 45px);
+	height: -moz-calc(100vh - 45px);
+	height: calc(100vh - 45px);
+	background-color: #F7F7F7;
+	overflow: hidden;
+    overflow:auto;
+    -webkit-overflow-scrolling: touch
+}
+
+.layout-box .layout-sidebar ul li{
+	display:block;
+	padding: 20px 0;
+	text-align: center;
+}
+.layout-box .layout-sidebar ul li a{
+  display: block;
+  padding: 10px 12px;
+  color: #7F7F7F;
+  border-left: 3px solid transparent;
+  line-height: 0;
+  font-size: 28rpx;
+}
+
+.layout-box .layout-sidebar ul li.active{
+	background-color: #fff;
+}
+.layout-box .layout-sidebar ul li.active a{
+  color: #FF2600;
+  border-left: 3px solid #FF2600;
+  font-weight: 700;
+}
+.layout-box .layout-content{
+  flex: 1;
+  position: relative;
+  padding:24rpx;
+/*  height: -webkit-calc(100vh - 45px);
+  height: -moz-calc(100vh - 45px);
+  height: calc(100vh - 45px);*/
+  -webkit-overflow-scrolling:touch;
+  overflow-y: scroll;
+
+}
+/*.layout-box  .scroll-content{
+	position:absolute;
+	top:45px;
+	left:80px;
+	right:0;
+	bottom:0;
+	width: initial;
+ 	height: -webkit-calc(100vh - 45px);
+    height: -moz-calc(100vh - 45px);
+    height: calc(100vh - 45px);
+  	-webkit-overflow-scrolling:touch;
+}*/
+
+.layout-box .layout-content .layout-content-tit{
+	position:relative;
+	margin:24rpx 0 16rpx;
+	color:#7F7F7F;
+	font-size: 30rpx;
+}
+
+.layout-box .layout-content .layout-content-banner{
+	height: 0;
+	padding-bottom: 32.3%;
+	background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+.sort .product-list li{
+	float: left;
+	width: 33.33333%;
+}
+.sort .product-list li .product{
+	padding:0;
+	border:none;
+}
+.ranking-list {
+	margin-top:24rpx;
+	
+}
+.ranking-list .ranking-banner{
+	margin-bottom: 16rpx;
+	height: 0;
+	/*padding-bottom: 22.8%;*/
+	background-color: #f5f5f5;
+	box-sizing: border-box;
+}
+.ranking-list .ranking-banner:last-child{
+	margin-bottom: 0;
+}

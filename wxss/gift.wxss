@@ -1,0 +1,49 @@
+.gift-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 640px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 999;
+  background-color: rgba(0,0,0,0.3);
+}
+.gift-box .gift-content {
+  height: 100%;
+  margin: 0 15%;
+  display: -webkit-box;
+  display: -ms-box;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+.gift-box .gift-content ul {
+  width: 100%;
+}
+.gift-box .gift-content img {
+  display: block;
+}
+.gift-box .gift-content .gift-operation {
+  padding: 20px 20%;
+  background-color: #fff;
+  text-align: center;
+}
+.gift-box .gift-content .gift-operation a {
+  display: block;
+  padding: 10px 0;
+  color: #fff;
+  background-color: #fe6547;
+  border-radius: 25px;
+  font-size: 18px;
+}
+.gift-box .close {
+  display: block;
+  padding: 15px 0;
+}

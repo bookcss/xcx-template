@@ -1,0 +1,152 @@
+<view class="app-user">
+    <view class="app-user-show" style="background-image: url(http://image.huodao.hk/xcx-user-bg.png)">
+
+        <view class="app-user-img" >
+            <image src="{{userData ? userData.avatar : '../../images/Head portrait@2x.png' }}" bindtap="openSetting"></image>
+            <view class="login-status">
+                <strong wx:if="{{userData}}">{{userData.user_name}}</strong>
+                <view class="fleximg" wx:if="{{!userData}}" bindtap="gotologin">登录</view>
+
+            </view>
+        </view>
+  
+        <view class="topicon">
+            <navigator hover-class="none" url="../setting/setting">
+                <image src="../../images/user/setimg.png" ></image>
+            </navigator>
+            <navigator hover-class="none" url="../message/message" style="position:relative">
+                <image src="../../images/user/infoimg.png" ></image>
+                <view  wx:if="{{redDotCount > 0 }}">{{redDotCount}}</view>
+            </navigator>
+        </view>
+    </view>
+
+    <view class="app-user-content">
+        <view class="user-header">
+            <view class="user-list">
+                <a class="link" bindtap="linkRoute" data-name="user-order"  data-state="all">
+                    我的订单
+                    <text class="more">查看全部订单</text>
+                    <image class="arrow" src="../../images/detailsicon_icon_enter_gery@2x.png"  mode="widthFix"  style="width:8px;"></image>
+                </a>
+            </view>
+            <ul class="user-list-state">
+                <li>
+                    <a  class="link" bindtap="linkRoute" data-name="user-order" data-state="0">
+                        <image  src="../../images/user/personage_payment@2x.png" ></image>
+                        <span class="text24">待付款</span>
+                        <strong class="num" wx:if="{{orderNum.order_status_waitpay_count && userData}}">{{orderNum.order_status_waitpay_count}}</strong>
+
+                    </a>
+                </li>
+                <li>
+                    <a  class="link" bindtap="linkRoute" data-name="user-order" data-state="1">
+                        <image  src="../../images/user/personage_shipments@2x.png" ></image>
+                        <span class="text24">待发货</span>
+                        <strong class="num" wx:if="{{orderNum.order_status_process_count && userData}}">{{orderNum.order_status_process_count}}</strong>
+                    </a>
+                </li>
+                <li>
+                    <a  class="link" bindtap="linkRoute" data-name="user-order" data-state="2">
+                        <image  src="../../images/user/personage_cargo@2x.png" ></image>
+                        <span class="text24">待收货</span>
+                        <strong class="num" wx:if="{{orderNum.order_status_waitget_count && userData}}">{{orderNum.order_status_waitget_count}}</strong>
+                    </a>
+                </li>
+                <li>
+                    <a  class="link"  bindtap="linkRoute" data-name="user-order" data-state="4">
+                        <image  src="../../images/user/personage_order@2x.png" ></image>
+                        <span class="text24">可晒单</span>
+                        <strong class="num" wx:if="{{orderNum.order_status_finish_count && userData}}">{{orderNum.order_status_finish_count}}</strong>
+                    </a>
+                </li>
+                <li>
+                    <a  class="link" bindtap="linkRoute" data-name="no" >
+                        <image  src="../../images/user/personage_orderinsturment@2x.png" ></image>
+                        <span class="text24">售后维修</span>
+                        <strong class="num" wx:if="{{orderNum.order_status_finish_count && userData}}">{{orderNum.order_status_finish_count}}</strong>
+                    </a>
+                </li>
+            </ul>
+        </view>
+        <view class="user-nav">
+            <ul>
+                <li>
+                    <a  class="link" bindtap="linkRoute" data-name="pt">
+                        <view class="user-nav-tit">
+                            <image src="../../images/user/pt-icon.png"  mode="aspectFit"  ></image>
+                            <span>拼团</span>
+                        </view>
+                        <image class="arrow" src="../../images/detailsicon_icon_enter_gery@2x.png"  mode="widthFix"  style="width:8px;"></image>
+                    </a>
+                </li>
+                <li>
+                    <a  class="link" bindtap="linkRoute" data-name="address">
+                        <view class="user-nav-tit">
+                            <image src="../../images/user/user-icon1.png"  mode="aspectFit"  ></image>
+                            <span>收货地址管理</span>
+                        </view>
+                        <image class="arrow" src="../../images/detailsicon_icon_enter_gery@2x.png"  mode="widthFix"  style="width:8px;"></image>
+                    </a>
+                </li>
+                <li>
+                    <a  class="link" bindtap="linkRoute" data-name="collection">
+                        <view class="user-nav-tit">
+                            <image src="../../images/user/user-icon2.png"  mode="aspectFit"  ></image>
+                            <span>我的收藏</span>
+                        </view>
+                        <image class="arrow" src="../../images/detailsicon_icon_enter_gery@2x.png"  mode="widthFix"  style="width:8px;"></image>
+                    </a>
+                </li>
+                <li>
+                    <a  class="link" bindtap="linkRoute" data-name="coupon">
+                        <view class="user-nav-tit">
+                            <image src="../../images/user/user-icon3.png"  mode="aspectFit"  ></image>
+                            <span>我的优惠券</span>
+                        </view>
+                        <image class="arrow" src="../../images/detailsicon_icon_enter_gery@2x.png"  mode="widthFix"  style="width:8px;"></image>
+                    </a>
+                </li>
+               <!--  <li>
+                    <a  class="link" bindtap="linkRoute" data-name="no">
+                        <view class="user-nav-tit">
+                            <image src="../../images/user/user-icon4.png"  mode="aspectFit"  ></image>
+                            <span>售后维修</span>
+                        </view>
+                        <image class="arrow" src="../../images/detailsicon_icon_enter_gery@2x.png"  mode="widthFix"  style="width:8px;"></image>
+                    </a>
+                </li> -->
+                <li>
+                    <a  class="link" bindtap="linkRoute" data-name="repair-card">
+                        <view class="user-nav-tit">
+                            <image src="../../images/user/user-icon5.png"  mode="aspectFit"  ></image>
+                            <span>电子保修卡</span>
+                        </view>
+                        <image class="arrow" src="../../images/detailsicon_icon_enter_gery@2x.png"  mode="widthFix"  style="width:8px;"></image>
+                    </a>
+                </li>
+                <li>
+                    <navigator url="../setting/setting" hover-class="none" class="link">
+                        <view class="user-nav-tit">
+                            <image src="../../images/user/user-icon6.png"  mode="aspectFit"  ></image>
+                            <span>设置</span>
+                        </view>
+                        <image class="arrow" src="../../images/detailsicon_icon_enter_gery@2x.png"  mode="widthFix"  style="width:8px;"></image>
+                    </navigator>
+                </li>
+                <li>
+                    <a  class="link" bindtap="phoneCall" data-phone="4008622633">
+                        <view class="user-nav-tit">
+                            <image src="../../images/user/user-icon7.png"  mode="aspectFit"  ></image>
+                        </view>
+                        <view style="position:absolute;top:5px;left:50px;">
+                            <span>客服电话：4008622633</span>
+                            <span class="servive-time">服务时间：9:00~20:00</span>
+                        </view>
+                    </a>
+                </li>
+            </ul>
+          
+        </view>
+    </view>
+</view>

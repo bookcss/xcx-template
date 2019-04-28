@@ -1,0 +1,28 @@
+/*未登录*/
+.auth-login {
+    min-height: 100vh;
+    padding: 151rpx 50rpx;
+    text-align: center;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.auth-login .h2 {
+    margin: 81rpx 0 21rpx;
+    font-size: 48rpx;
+    font-weight: 700;
+    color: #000;
+}
+
+.auth-login .desc {
+    margin-bottom: 82rpx;
+    color: #5A5E66;
+}
+
+.auth-login button {
+	line-height:2.55555556;
+   
+}
+.auth-login button:active{
+	background-color: #0F8E0F;
+}

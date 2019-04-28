@@ -1,0 +1,7 @@
+/**app.wxss**/
+
+@import "wxss/common.wxss";
+@import "wxss/search.wxss";
+@import "wxss/header.wxss";
+@import "wxss/icon.wxss";
+

@@ -1,0 +1,42 @@
+<view class="user-address add-address">
+    <view class="address-form">
+        <view class="address-group">
+            <label for="">收件人</label>
+            <view class="address-control">
+                <input type="text" value="{{name}}" placeholder="收件人" data-name="name" bindblur="getInputVal" />
+            </view>
+        </view>
+        <view class="address-group">
+            <label for="">联系方式</label>
+            <view class="address-control">
+                <input type="text" value="{{phone}}" maxlength="11" placeholder="联系方式"  data-name="phone" bindblur="getInputVal" />
+            </view>
+        </view>
+        <view class="address-group">
+            <label for="">所在地区</label>
+            <view class="address-control" bindtap="openSelectArea">
+                <span class="input" wx:if="{{provincial}}" style="color:{{provincial ? '#333' : '#666'}}"> {{provincial ? provincial : '所在地区'}}</span>
+                <span class="input" wx:if="{{!provincial}}" style="color:{{provincial ? '#333' : '#666'}}"> {{provincial ? provincial : '所在地区'}}</span>
+            </view>
+        </view>
+        <view class="address-group">
+            <label for="">详情地址</label>
+            <view class="address-control">
+
+                <textarea value="{{addressDetail}}" placeholder="详情地址" data-name="addressDetail" bindinput="getInputVal" />
+                <!-- <input type="text"  value="{{addressDetail}}" placeholder="街道/楼牌号等" data-name="addressDetail" bindblur="getInputVal" /> -->
+            </view>
+        </view>
+    </view>
+
+    <view class="operation fixed">
+        <view class="operation-btn" bindtap="formCheck">
+          {{!productId ? '保存' : '保存并使用'}}
+        </view>
+    </view>
+    
+</view>
+
+<!-- 地址选择 -->
+<select-address isOpen = "{{showAreaSelect}}"   bindcustomevent="getSelectData" />
+

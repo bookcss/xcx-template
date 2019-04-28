@@ -1,0 +1,141 @@
+<view class="shop-cart" >
+
+  <view class="shop-cart-header" wx:if="{{!userData && list.length == 0 && sold.length == 0 }}" >
+      登录后可以同步购物车的商品哦~
+      
+      <view class="link red"  bindtap="gotologin">去登录</view>
+      <!-- <button class="link red" hover-class="none" open-type="getUserInfo" bindgetuserinfo="gotologin" >去登录</button> -->
+  </view>
+  <view class="shop-cart-header" wx:if="{{userData && list.length == 0 && sold.length > 0}}" bindtap="gotoindex">
+      您的购物车还没有可购买的商品哦~
+      <text class="link red">去逛逛 ></text>
+  </view>
+    <view class="module" wx:if="{{list.length > 0}}" >
+      <view class="table-view">
+          <view wx:for="{{list}}" wx:key="{{index}}" wx:for-item="item" class="list-cell table-view-cell clearfix" capture-bind:touchstart="touchS" capture-bind:touchmove="touchM" capture-bind:touchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" data-name="list">
+              <view class="clearfix" >
+                  <view class="label" bindtap="cartSelect" data-index="{{index}}">
+                      <image wx:if="{{!item.isselect}}" class="isselect" src="../../images/icon_popup_buy_choose@2x.png" alt="" mode="widthFix" style="width:18px;" />
+                      <image wx:if="{{item.isselect}}" class="isselect" src="../../images/coupon-select.png" alt="" mode="widthFix" style="width:18px;" />
+                  </view>
+                  
+                  <view bindtap="gotoDetail" data-productid="{{item.product_id == 0 ? item.shopcart_value : item.product_id}}" data-type="{{item.shopcart_type}}">
+                      <view class="media-object pull-left media-view" style="background-image:url({{item.main_pic}}?imageView2/0/w/250)">
+                        
+                        <view class="bh" wx:if="{{item.product_id != 0}}">
+                          编号：{{item.product_id}}
+                        </view>
+                      </view>
+                      <view class="media-body" >
+                          <view class="media-tit ellipsis" wx:if="{{item.product_id != 0}}">
+                              {{item.product_name}} {{item.shopcart_banben_string}} {{item.shopcart_netword_string}}
+                          </view>
+                          <view class="media-tit ellipsis" wx:if="{{item.product_id == 0}}">
+                              {{item.product_name}}
+                          </view>
+
+                          <!-- 商品 -->
+                          <view class="service-box" wx:if="{{item.product_id != 0}}">
+                              服务：
+                              <block wx:if="{{item.rs_serve_info.length > 0}}">
+                                   <text class="service" wx:for="{{item.rs_serve_info}}" wx:key="{{index}}" wx:for-item="service">{{service.server_name2}};</text>¥{{item.serve_total_amount}}
+                              </block>
+
+                              <block wx:if="{{item.rs_serve_info.length == 0}}">
+                                无
+                              </block>
+                             
+                          </view>
+                          
+                          <!-- 配件 -->
+                          <view class="service-box" wx:if="{{item.product_id == 0}}">
+                              规格：{{item.shopcart_peijian_guige_str}}
+                          </view>
+                          
+                          <view class="media-footer">
+                              <span class="new-price red">¥{{item.shopcart_price}}</span>
+                              <view class="cart-num select-number-box"  wx:if="{{item.product_id == 0}}">
+                                <text class="select-number-btn decrease" catchtap="decrease" data-index="{{index}}">-</text> 
+                                <text class="select-number-btn " catchtap="cancelDefault">{{item.shopcart_pro_num}}</text>
+                                <text class="select-number-btn increase" catchtap="increase" data-index="{{index}}">+</text> 
+                              </view>
+                          </view>
+                      </view>
+                  </view> 
+
+              </view>
+              <view data-index="{{index}}" data-name="list" bindtap="delItem" class="inner del" data-productid="{{item.product_id}}" data-value="{{item.shopcart_value}}">删除</view>
+          </view>
+      </view>
+    </view>
+  
+    <view class="module" wx:if="{{sold.length > 0}}">
+      <view class="sold-tip">
+        这{{sold.length}}件商品被买走啦~
+        <view class="clean red" bindtap="cleanData">一键清空</view>
+      </view>
+      <view class="table-view table-view-two">
+          <view wx:for="{{sold}}" wx:key="{{index}}" wx:for-item="item" class="sold-cell  table-view-cell clearfix" capture-bind:touchstart="touchS" capture-bind:touchmove="touchM" capture-bind:touchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" data-name="sold">
+              <view class="clearfix" >
+                  <view class="label">
+                      <view class="sold-label">
+                        失效
+                      </view>
+                  </view>
+
+                  <view bindtap="gotoDetail" data-productid="{{item.product_id == 0 ? item.shopcart_value : item.product_id}}" data-type="{{item.shopcart_type}}">
+                    <view class="media-object pull-left media-view" style="background-image:url({{item.main_pic}}?imageView2/0/w/200)">
+                      <view class="bh" wx:if="{{item.product_id != 0}}">
+                          编号：{{item.product_id}}
+                      </view>
+                    </view>
+                    <view class="media-body" >
+                        <view class="media-tit ellipsis" wx:if="{{item.product_id != 0}}">
+                              {{item.product_name}} {{item.shopcart_banben_string}} {{item.shopcart_netword_string}}
+                        </view>
+                        <view class="media-tit ellipsis" wx:if="{{item.product_id == 0}}">
+                            {{item.product_name}}
+                        </view>
+                        <view class="service-box" >
+                            服务：
+                            <block wx:if="{{item.rs_serve_info.length > 0}}">
+                                 <text class="service" wx:for="{{item.rs_serve_info}}" wx:key="{{index}}" wx:for-item="service">{{service.server_name2}};</text>¥{{item.serve_total_amount}}
+                            </block>
+
+                            <block wx:if="{{item.rs_serve_info.length == 0}}">
+                              无
+                            </block>
+                        </view>
+                        <view class="media-footer">
+                            <span class="new-price red">¥{{item.shopcart_price}}</span>
+
+                            <view class="cart-num" wx:if="{{item.product_id == 0}}">x{{item.shopcart_pro_num}}</view>
+                        </view>
+                    </view>
+                  </view>
+              </view>
+              <view data-index="{{index}}" data-name="sold" bindtap="delItem" class="inner del" data-productid="{{item.product_id}}" data-value="{{item.shopcart_value}}">删除</view>
+          </view>
+      </view>
+    </view>
+    <view class="shop-cart-opertion" wx:if="{{list.length > 0}}">
+          <view class="left" bindtap="allSelect">
+            <image wx:if="{{!allSelect}}" class="isselect" src="../../images/icon_popup_buy_choose@2x.png" alt="" mode="widthFix" style="width:18px;" />
+            <image wx:if="{{allSelect}}" class="isselect" src="../../images/coupon-select.png" alt="" mode="widthFix" style="width:18px;" />
+            <text class="all-select" >全选</text>
+          </view>
+
+          <view class="right">
+            合计：<text class="red ">¥{{amountMoney}}</text>
+            <button class="a {{allNum > 0 ? '' : 'disabled'}}" hover-class="none" open-type="getUserInfo" bindgetuserinfo="gotosub" data-isdisabled="{{allNum > 0 ? '' : 'disabled'}}" >去结算{{allNum > 0 ? '('+allNum+')' : ''}}</button>
+          </view>
+    </view>
+
+    <view class="no-data" wx:if="{{list.length <= 0 && sold.length <= 0 }}">
+        <image src="../../images/img_shoppingcar@2x.png" alt=""  mode="widthFix"  style="width:120px"/>
+        <view class="sum" >购物车还是空的哦~</view>
+        <view class="a" bindtap="gotoindex">
+          去逛逛
+        </view>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+<view class="page-index">
+    <view class="activity-list">
+        <view class="activity-content" wx:for="{{activityData}}" wx:for-item="item" wx:key="index"  bindtap="gotowap" data-url="{{item.jump_url}}">
+
+            <view class="activity-banner">
+              <image src="{{item.banner_url}}?imageView2/0/w/750"  mode="widthFix"   />
+            </view>
+
+            <view class="actividy-bottom">
+              <view class="actividy-title" >
+                {{item.title}}
+                  <span class="time">{{item.remaining_day}}</span>
+              </view>
+
+              <view class='actividy-num'>
+                <image src="../../images/sales.png" alt="促销" mode="widthFix" style="width:14px;"></image>
+                <text>{{item.adv_string}}</text>
+              </view>
+            </view>
+      </view>    
+    </view>
+    <include src="../../wxml/loading.wxml" wx:if="{{isData}}" />
+    <view style="padding:16px;color:#666;text-align: center;" wx:if="{{isfull}}">已全部显示</view>
+</view>

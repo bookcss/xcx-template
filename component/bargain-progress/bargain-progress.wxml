@@ -1,0 +1,43 @@
+
+
+<view class="progress-box">
+     <view class="progress {{type != 0 ? 'progress-end' : ''}}">
+        <view class="bar bar-danger" style="width:{{100 * thisPrice / totalPrice }}%"></view>
+		
+		<view class="tip {{thisPercent > 80 ? 'right' :  thisPercent < 5  ? 'left' : 'top' }}" style="{{style}}" wx:if="{{status == 1}}">
+		  <view class="tip-arrow"></view>
+		  <view class="tip-inner" id="tip-inner">已砍¥{{thisPrice}}</view>
+		</view>
+
+		<view class="tip top" wx:if="{{status == 0}}">
+		  <view class="tip-inner tip-other" wx:if="{{type != 0 && isChop == 0 }}">已失效</view>
+		  <view class="tip-inner tip-other" wx:if="{{ (type != 0 && isChop > 0) ||  type == 0}}">{{thisPrice >= totalPrice ? '好友已经砍价成功' : '已帮好友砍价' }}</view>
+		</view>
+		
+		<!-- 圆点位置 -->
+		<view class="range-circle">
+			<view class="range-circle-li active" style="left:-2rpx"></view>
+			<view class="range-circle-li {{thisPrice >= firstPrice ? 'active' : ''}}" style="left:{{ 100 * firstPrice / totalPrice}}%"></view>
+			<view class="range-circle-li {{thisPrice >= secondPrice ? 'active' : ''}}" style="left:{{100 * secondPrice / totalPrice}}%"></view>
+			<view class="range-circle-li {{thisPrice >= totalPrice ? 'active' : ''}}" style="right:-2rpx"></view>
+		</view>
+
+		<!-- 价格区间 -->
+		<view class="price-range">
+
+			<view class="price-stage active" style="left:0">
+        		¥0
+	        </view>
+	        <view class="price-stage {{thisPrice >= firstPrice ? 'active' : ''}}" style="left:{{100 * firstPrice / totalPrice}}%">
+	        	¥{{firstPrice}}
+	        </view>
+	        <view class="price-stage {{thisPrice >= secondPrice ? 'active' : ''}}" style="left:{{100 * secondPrice / totalPrice}}%">
+	        	¥{{secondPrice}}
+	        </view>
+	        <view class="price-stage {{thisPrice >= totalPrice ? 'active' : ''}}" style="right:0">
+	        	¥{{totalPrice}}
+	        </view>
+		</view>
+
+    </view>
+</view>

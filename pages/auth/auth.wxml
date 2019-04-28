@@ -1,0 +1,11 @@
+<view class="auth-login">
+	<image src="../../images/bargain/logo.png" mode="widthFix" style="width:113rpx;"></image>
+	<view class="h2">
+		授权登录
+	</view>
+	<view class="desc">
+		允许登录找靓机小程序商城
+	</view>
+
+	<button size="default" type="primary" open-type="getUserInfo" bindgetuserinfo="gotoLogin" >授权微信账号登录</button>
+</view>

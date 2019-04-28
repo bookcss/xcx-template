@@ -1,0 +1,282 @@
+/*======== index ========*/
+@import "../../wxss/gift.wxss";
+
+@import '../activity-list/activity-list.wxss'
+
+/*banner*/
+.page-index {
+  overflow: hidden;
+}
+
+.page-index .app-banner swiper {
+  height: 300rpx;
+}
+
+.page-index .app-banner .banner-view {
+  display: block;
+  height: 100%;
+  background-color: #e7e7e7;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/*icon*/
+
+.entrance-list {
+  padding: 10px 0;
+  height: 152px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.entrance-list .entrance-list-ul {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+}
+
+.entrance-list .entrance-list-ul .entrance-list-li {
+  width: 20%;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.entrance-list .entrance-list-ul .entrance-list-li button{
+  color:#666;
+}
+.entrance-list .entrance-list-ul .entrance-list-li span {
+  display: block;
+  font-size: 12px;
+}
+
+.page-index .module .module-title {
+  position: relative;
+  padding: 28rpx;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #fff;
+}
+
+.fun-module {
+  display: flex;
+  display: -webkit-flex;
+  /* margin-bottom: 10px; */
+  background-color: #fff;
+  border-top: 1px solid #f5f4f9;
+  border-bottom: 1px solid #f5f4f9;
+  background: #f5f4f9;
+  padding: 18rpx;
+  flex-wrap: wrap;
+  justify-content: center
+}
+
+.fun-module .fun-module-li {
+  /* flex: 1; *//* -webkit-flex: 1; */
+  height: 257rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 7rpx;
+  width: 341rpx;
+  border-radius: 8rpx;
+}
+
+.fun-module .fun-module-li:first-child {
+  /* border-right: 1px solid #f5f4f9; */
+}
+
+/*/*为您推荐*/
+
+.module.recommend-list {
+  margin: 10px -5px 0;
+  font-size: 0;
+  margin-top: 0
+}
+
+.recommend-list .recommend-li {
+  display: inline-block;
+  width: 50%;
+  font-size: 14px;
+}
+
+.recommend-list .activity-content {
+  margin: 0 5px 10px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.recommend-list .activity-content .product-img {
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.recommend-list .activity-content .product-img  image {
+  height: 180px;
+}
+
+.recommend-list .activity-content .product-img .icon {
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+
+.base-msg-label {
+  font-size: 0;
+  margin: 5px 0;
+  height: 44px;
+  overflow: hidden;
+}
+
+.base-msg-label span {
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  padding: 0.5px 3px;
+  color: #fff;
+  font-size: 12px;
+  height: 18px;
+  line-height: 18px;
+}
+
+.base-msg-label span {
+  color: #666;
+}
+
+.recommend-list .activity-content .product-msg {
+  position: relative;
+  padding: 5px;
+  color: #000;
+  background-color: #fff;
+}
+
+.recommend-list .activity-content .product-msg .h2 {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.recommend-list .activity-content .product-msg .price-box span {
+  color: #fe6547;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.recommend-list .activity-content .product-msg .price-box span.old-price {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  font-weight: normal;
+}
+
+.recommend-list .activity-content .product-msg .price-box em {
+  font-style: normal;
+}
+
+.red-pack {
+  margin-top: 10px;
+  /* height: 0; */
+  /* padding-bottom: 18%; */
+  background: transparent;
+}
+.red-pack .btn{
+  padding: 8rpx 30rpx;
+  background: #fff
+}
+.red-pack-cb {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.red-pack-cb>view {
+  margin-top: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.red-pack-cb image {
+  width: 80%;
+}
+
+.red-pack-cb .close {
+  position: relative;
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  z-index: 22;
+  overflow: hidden;
+  margin-right: 80rpx;
+  margin-bottom: -40rpx;
+  align-self: flex-end;
+}
+
+.close::Before, .close::after {
+  width: 200%;
+  left: -50%;
+}
+
+.close::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.close::before, .close::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #fff;
+}
+
+.close::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.red-pack-btn {
+  width: 80%;
+  height: 300px;
+  text-align:center;
+}
+.activity-list{
+  border-top:none;
+}
+
+/*抽奖弹框*/
+.pop-wrapper .pop-close {
+    position: absolute;
+    left: 50%;
+    margin-top: 44rpx;
+    margin-left: -38rpx;
+}
+
+.pop-wrapper .pop-center {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 40%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    padding: 46rpx;
+    text-align: center;
+    box-sizing: border-box;
+}
