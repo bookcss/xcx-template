@@ -7,7 +7,7 @@
 
 ### 一、目录结构
 ```
-├── component
+├── components
 |   ├── select-address
 ├── images
 ├── pages
@@ -29,14 +29,14 @@
 └── wxParse
 ```
 
-#### 1.component
+#### 1.components
 主要存放组件模块，可自行添加。
 组件需要在页面里的 `xxx.json` 文件下配置组件路径，如下：
 ```
 {
   "navigationBarTitleText": "标题",
   "usingComponents":{
-    "select-address":"../../component/select-address/select-address"
+    "select-address":"../../components/select-address/select-address"
   }
 }
 ```
