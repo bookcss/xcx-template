@@ -5,17 +5,17 @@ let isDev = false;
 // 开发环境域名
 let dev = {
   // 商城API
-  baseApi : 'https://testpanda.huodao.hk',
+  baseApi : 'xxx1.com',
   // 抽奖api
-  drawApi :  'https://testact.zhaoliangji.com'
+  drawApi :  'xxx2.com'
 }
 
 // 线上环境域名
 let pro = {
   // 商城API
-  baseApi : 'https://panda.huodao.hk',
+  baseApi : 'xxx3.com',
   // 抽奖api
-  drawApi :  'https://act.zhaoliangji.com'
+  drawApi :  'xxx4.com'
 }
 
 export default isDev ? dev : pro
