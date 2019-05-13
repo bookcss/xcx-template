@@ -4,9 +4,9 @@
 
 > github地址：[https://github.com/hwgq2005/xcx-template](https://github.com/hwgq2005/xcx-template "微信小程序模板")
 
-[TOC]
 
 ### 一、目录结构
+```
 ├── component
 |   ├── select-address
 ├── images
@@ -27,16 +27,17 @@
 |   ├── header.wxss
 |   └── sidebar.wxss
 └── wxParse
+```
 
 #### 1.component
 主要存放组件模块，可自行添加。
 组件需要在页面里的 `xxx.json` 文件下配置组件路径，如下：
 ```
 {
-	"navigationBarTitleText": "标题",
-    "usingComponents":{
-    	"select-address":"../../component/select-address/select-address"
-    }
+  "navigationBarTitleText": "标题",
+  "usingComponents":{
+    "select-address":"../../component/select-address/select-address"
+  }
 }
 ```
 #### 2.utils
