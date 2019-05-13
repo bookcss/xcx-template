@@ -4,6 +4,8 @@
 
 > github地址：[https://github.com/hwgq2005/xcx-template](https://github.com/hwgq2005/xcx-template "微信小程序模板")
 
+[TOC]
+
 ### 一、目录结构
 ├── component
 |   ├── select-address
