@@ -4,7 +4,9 @@
     "pages/user/user",
     "pages/list/list",
     "pages/sort/sort",
-    "pages/shop-cart/shop-cart"
+    "pages/shop-cart/shop-cart",
+    "pages/address/address",
+    "pages/address-update/address-update"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

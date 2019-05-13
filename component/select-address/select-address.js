@@ -63,7 +63,7 @@ Component({
         urlParams.pid = pid;
 
         wx.request({
-            url: _.host + '/api/account/address/get_address_list', //仅为示例，并非真实的接口地址
+            url: _.host.baseApi + '/api/account/address/get_address_list', //仅为示例，并非真实的接口地址
             method: 'get',
             data: urlParams,
             header: {

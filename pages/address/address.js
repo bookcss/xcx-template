@@ -41,7 +41,7 @@ Page({
         urlParams.token = vm.data.token;
         
         wx.request({
-            url: _.host + '/api/account/address/get_reciver_address_list',
+            url: _.host.baseApi + '/api/account/address/get_reciver_address_list',
             method: 'post',
             data: urlParams,
             header: {
@@ -82,7 +82,7 @@ Page({
         if (isActive == 1) return;
 
         wx.request({
-            url: _.host + '/api/account/address/set_address_default',
+            url: _.host.baseApi + '/api/account/address/set_address_default',
             method: 'post',
             data: urlParams,
             header: {
@@ -148,7 +148,7 @@ Page({
           success: function(res) {
             if (res.confirm) {
                 wx.request({
-                    url: _.host + '/api/account/address/disable_address',
+                    url: _.host.baseApi + '/api/account/address/disable_address',
                     method: 'post',
                     data: urlParams,
                     header: {

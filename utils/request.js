@@ -7,7 +7,10 @@ class Request {
      * 默认属性
      */
     constructor() {
-        this.data = {}
+        this.data = {
+            // 是否需要签名
+            isSign : true
+        }
         this.method = 'GET'
     }
    
@@ -17,18 +20,24 @@ class Request {
      */
     ajax(options = {}){
 
-        options.data ?  '' : options.data = this.data
+        options.data = Object.assign({},options.data,this.data);
         options.method ?  '' : options.method = this.method
 
         return new Promise((resolve, reject) => {
 
-            // 获取公共参数（如果不需要签名，可跳过次步骤）
-            getPublicParams(options.data).then(function(resultParams){
-
+            // 判断是否需要签名
+            if (options.data.isSign) {
+                getPublicParams(options.data).then(function(data){
+                    request(data);
+                })   
+            }else{
+                request(options.data);
+            }
+            function request(data){
                 wx.request({
                     url: options.url,
                     method: options.method,
-                    data: resultParams,
+                    data: data,
                     header: {
                         'content-type': 'application/json'
                     },
@@ -57,7 +66,7 @@ class Request {
                        
                     }
                 })
-            })   
+            }  
         })
 
     }

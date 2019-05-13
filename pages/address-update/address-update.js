@@ -72,7 +72,7 @@ Page({
         urlParams.address_id = vm.data.addressId;
 
         wx.request({
-            url: _.host + '/api/account/address/get_address_detail', //仅为示例，并非真实的接口地址
+            url: _.host.baseApi + '/api/account/address/get_address_detail', //仅为示例，并非真实的接口地址
             method: 'get',
             data: urlParams,
             header: {
@@ -200,7 +200,7 @@ Page({
             state: false
         })
         wx.request({
-            url: _.host + url, //仅为示例，并非真实的接口地址
+            url: _.host.baseApi + url, //仅为示例，并非真实的接口地址
             method: 'post',
             data: urlParams,
             header: {
