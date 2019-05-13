@@ -151,5 +151,5 @@ let pro = {
 
 ### 四、结尾
 
-以上只提供目录模板，及公共方法，其他需自行开发。
+以上只提供目录及公共方法，其它需自行开发。
 微信小程序开发文档：[https://developers.weixin.qq.com/miniprogram/dev/reference/](https://developers.weixin.qq.com/miniprogram/dev/reference/ "微信小程序开发文档")
