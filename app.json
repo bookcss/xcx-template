@@ -2,15 +2,12 @@
   "pages": [
     "pages/index/index",
     "pages/user/user",
-    "pages/list/list",
-    "pages/sort/sort",
-    "pages/shop-cart/shop-cart",
     "pages/address/address",
     "pages/address-update/address-update"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "找靓机",
+    "navigationBarTitleText": "模板",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F5F5F5",
     "backgroundTextStyle": "dark",
@@ -23,24 +20,6 @@
         "text": "首页",
         "iconPath": "images/icon/tab_icon_home_default-@2x.png",
         "selectedIconPath": "images/icon/tab_icon_home_pressed@2x.png"
-      },
-      {
-        "pagePath": "pages/sort/sort",
-        "text": "分类",
-        "iconPath": "images/icon/tab_icon_assortment_default@2x.png",
-        "selectedIconPath": "images/icon/tab_icon_assortment_pressed@2x.png"
-      },
-      {
-        "pagePath": "pages/list/list",
-        "text": "晒单",
-        "iconPath": "images/icon/tab_icon_evaluate_default@2x.png",
-        "selectedIconPath": "images/icon/tab_icon_evaluate_pressed@2x.png"
-      },
-      {
-        "pagePath": "pages/shop-cart/shop-cart",
-        "text": "购物车",
-        "iconPath": "images/icon/tab_icon_shoppingcar_default.png",
-        "selectedIconPath": "images/icon/tab_icon_shoppingcar_pressed.png"
       },
       {
         "pagePath": "pages/user/user",

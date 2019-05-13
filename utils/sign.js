@@ -50,7 +50,7 @@ function buildParams(params){
     for (let i = 0; i < keyArr.length; i++) {
        params[keyArr[i]] ? keys += keyArr[i] + '=' +params[keyArr[i]]+ '&' : '';
     }
-    keys = keys.substring(0, keys.length - 1) + 'zhaoliangji_oauth#$Z.*$%(#$%16Xcxc456^';
+    keys = keys.substring(0, keys.length - 1);
     return md5(keys);
     
 }

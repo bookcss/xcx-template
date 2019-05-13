@@ -36,7 +36,7 @@ App({
     },
 
     // 登录授权
-    getWxUiNew(callback, e) {
+    getAuth(callback, e) {
         let vm = this;
         if (!e.detail.userInfo) return;
         wx.login({
@@ -58,11 +58,10 @@ App({
                                     'content-type': 'application/json'
                                 },
                                 success: function(mainRes) {
-                                    console.log(mainRes, '登录')
+                                   
                                     let data = mainRes.data;
                                     if (data.code == 1) {
                                         wx.setStorageSync('userData', data.data);
-
 
                                         wx.showToast({
                                             title: "授权成功",

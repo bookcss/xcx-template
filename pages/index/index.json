@@ -1,7 +1,4 @@
 {
-    "navigationBarTitleText": "找靓机",
-    "enablePullDownRefresh":true,
-    "usingComponents": {
-      "fixed-icon": "../../component/fixed-icon/fixed-icon"
-    }
+    "navigationBarTitleText": "模板",
+    "enablePullDownRefresh":true
 }

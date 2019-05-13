@@ -1,128 +1,13 @@
-<!--index.wxml-->
-
-<!-- <scroll-view scroll-y="{{isScroll}}" bindscrolltoupper="refresh" bindscrolltolower="onLoadBottm" enable-back-to-top="true" style="height: 100vh;"> -->
-<view class="page-index {{searchOpen ? 'hidden-scroll' : ''}}">
 
 
-  <view class="app-banner">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="rgba(255,255,255,1)">
-      <block wx:for="{{banner}}" wx:for-item="item" wx:key="index">
-        <swiper-item bindtap="gotowap" data-url="{{item.banner_link_url}}" data-type="{{item.banner_load_type}}">
-          <view class="banner-view " style="background-image:url({{item.banner_image_url}}?imageView2/0/w/750)"></view>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
-  
-  <view class="entrance-list">
+<button
+  type="primary"
+  size="{{primarySize}}"
+  loading="{{loading}}"
+  plain="{{plain}}"
+  disabled="{{disabled}}"
+  bindtap="gotoLink"
+>
+  组件案例
+</button>
 
-    <form  report-submit="true" bindsubmit="getFormId">
-      <ul class="entrance-list-ul" wx:if="allData.iconList.length > 0">
-        <li class="entrance-list-li" wx:for="{{allData.iconList}}" wx:for-item="item" wx:key="index" data-type="{{item.type}}" data-url="{{item.url}}" data-typeId="{{item.cate}}" data-brandId="{{item.brand}}" data-modelId="{{item.model}}"
-          data-minPrice="{{item.price_min}}" data-maxPrice="{{item.maxPrice}}" data-name="{{item.model_name}}" bindtap="gotolink">
-
-          <button hover-class="none" form-type="submit">
-              <image src="{{item.icon_img_url}}" mode="aspectFit" style="height: 44px;" lazy-load="true" />
-              <span>{{item.title}}</span>
-          </button>
-        
-        </li>
-      </ul>
-    </form>
-  </view>
-  <!-- 红包 -->
-  <view class='red-pack' wx:if="{{redpack}}">
-    <view class='btn' bindtap="immdGetRedPack">
-      <image mode="widthFix" src="{{redpack}}"></image>
-    </view>
-  </view>
-  <view class='red-pack-cb' wx:if="{{redpackcb}}" catchtouchmove="true">
-    <view>
-      <view class="close" bindtap='closeRedPack'></view>
-      <view class='red-pack-btn' bindtap="immdGetRedPack">
-        <image mode="widthFix" src="{{redpackcb}}"></image>
-      </view>
-    </view>
-  </view>
-  <!-- 功能板块 -->
-   <form  report-submit="true" bindsubmit="getFormId">
-    <view class="fun-module">
-      <button hover-class="none" form-type="submit" class="fun-module-li" wx:for="{{allData.xcxModuleInfo.moduleList}}" wx:for-item="item" wx:key="index" style="background-image:url({{item.img_url}})" bindtap="gotolink" data-type="{{item.type}}" data-url="{{item.url}}" data-typeId="{{item.cate}}" data-brandId="{{item.brand}}" data-modelId="{{item.model}}" data-minPrice="{{item.price_min}}" data-maxPrice="{{item.maxPrice}}" data-name="{{item.model_name}}">
-      </button>
-    </view>
-  </form>
-  
-
-  <view class="activity-list" id="sort">
-    <view class="activity-content" wx:for="{{activityData}}" wx:for-item="item" wx:key="index" bindtap="gotowap" data-url="{{item.jump_url}}">
-
-      <view class="activity-tj" wx:if="{{index == 0}}">{{allData.activity_list_title}}</view>
-
-      <view class="activity-banner">
-        <image src="{{item.banner_url}}?imageView2/0/w/750" mode="widthFix" lazy-load="true" />
-      </view>
-
-      <view class="actividy-bottom">
-        <view class="actividy-title ellipsis">
-          {{item.title}}
-          <span class="time">{{item.remaining_day}}</span>
-        </view>
-
-        <view class='actividy-num'>
-          <image src="../../images/sales.png" alt="促销" mode="widthFix" style="width:14px;"></image>
-          <text>{{item.adv_string}}</text>
-        </view>
-      </view>
-    </view>
-  </view>
-
-  <view class="module recommend-list" wx:if="{{recommendData.length > 0}}">
-    <view class="module-title">
-      为你推荐
-    </view>
-    <view class="module-content clearfix">
-      <view class="recommend-li" wx:for="{{recommendData}}" wx:for-item="item" wx:key="index" bindtap="gotoDetail" data-pid="{{item.product_id}}">
-        <view class="activity-content">
-          <!-- <view class="product-img" style="background-image:url({{item.main_pic}})"></view> -->
-          <view class="product-img">
-            <image src="{{item.main_pic}}" mode="aspectFit" lazy-load="true" />
-          </view>
-          <view class="product-msg">
-            <view class="h2 ellipsis">{{item.product_name}}</view>
-
-            <view class="base-msg-label">
-              <span class="label-yellow" wx:for="{{item.param}}" wx:for-item="label" wx:key="index" style="background-color:#{{label.color}}">
-                <i class="name">{{label.param_name}}</i>
-              </span>
-            </view>
-            <view class="price-box">
-              <span>￥
-                <em>{{item.price}}</em>
-              </span>
-              <span class="old-price">￥{{item.ori_price}}</span>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
-  
-
-  <include src="../../wxml/loading.wxml" wx:if="{{isData}}" />
-
-</view>
-<!-- </scroll-view> -->
-<fixed-icon service top></fixed-icon>  
-
-
-<!-- 抽奖弹框 -->
-<view wx:if="{{lotteryBox}}" class="pop-wrapper" catchtap="hideSendBox" data-index='0' data-name="lotteryBox" catchtouchmove="true">
-      <view class="pop-center"  catchtap="hideSendBox" data-index='1' data-name="lotteryBox">
-          
-        <image src="{{lotteryImg}}" mode="widthFix" data-type="{{lotteryType}}" data-url="{{lotteryUrl}}" bindtap="gotoLottery"></image>
-
-        <view class="pop-close" catchtap="hideSendBox" data-index='0'  data-name="lotteryBox">
-          <image  src="../../images/bargain/close-circle.png" mode="widthFix" style="width:76rpx;"></image>
-        </view>
-      </view>
-</view>

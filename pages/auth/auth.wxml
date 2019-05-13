@@ -4,7 +4,7 @@
 		授权登录
 	</view>
 	<view class="desc">
-		允许登录找靓机小程序商城
+		允许登录小程序商城
 	</view>
 
 	<button size="default" type="primary" open-type="getUserInfo" bindgetuserinfo="gotoLogin" >授权微信账号登录</button>
