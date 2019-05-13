@@ -1,5 +1,5 @@
 
-const _ = require('../../utils/common.js').default;
+import _ from '../../utils/common'
 
 let userData;
 
