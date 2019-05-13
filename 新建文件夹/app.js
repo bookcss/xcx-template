@@ -1,6 +1,5 @@
 
 import _ from 'utils/common'
-import md5 from 'utils/md5'
 import $ from './utils/request'
 App({
 
