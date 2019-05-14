@@ -7,11 +7,12 @@ class Request {
      * 默认属性
      */
     constructor() {
-        this.data = {
-            // 是否需要签名
-            isSign : false
-        }
+
         this.method = 'GET'
+        this.data = {
+            isSign : false // 是否需要签名
+        }
+        
     }
    
     /**

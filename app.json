@@ -37,8 +37,10 @@
     "uploadFile": 30000,
     "downloadFile": 30000
   },
+
+  // 跳转到其他小程序
   "navigateToMiniProgramAppIdList": [
-    "wxd775de015d094191"
+    "appID"
   ],
   "debug": true
 }
