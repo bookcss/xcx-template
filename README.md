@@ -4,7 +4,6 @@
 
 > github地址：[https://github.com/hwgq2005/xcx-template](https://github.com/hwgq2005/xcx-template "微信小程序模板")
 
-
 ### 一、目录结构
 ```
 ├── components
@@ -35,9 +34,9 @@
 ```
 {
   "navigationBarTitleText": "标题",
-  "usingComponents":{
-    "select-address":"../../components/select-address/select-address"
-  }
+    "usingComponents":{
+      "select-address":"../../components/select-address/select-address"
+    }
 }
 ```
 #### 2.utils
@@ -81,44 +80,23 @@ $.ajax({
     method: 'post',
     data: {}
 }).then(function(data){
-    if (data.code == 1) {
-    	...
-    	do somethig ...
-    }
-}).catch(function(err){
-    
+   do somethig ...
 })
 ```
 #### 2.GET请求
 ```
 import $ from '../../utils/request'
 
-$.get({
-    url: _.host.baseApi + '/api/xxx',
-    data: {}
-}).then(function(data){
-    if (data.code == 1) {
-    	...
-    	do somethig ...
-    }
-}).catch(function(err){
-   
+$.get(_.host.baseApi + '/api/xxx',data: {}).then(function(data){
+  do somethig ...
 })
 ```
 #### 3.POST请求
 ```
 import $ from '../../utils/request'
 
-$.post({
-    url: _.host.baseApi + '/api/xxx',
-    data: {}
-}).then(function(data){
-    if (data.code == 1) {
-    	...
-    	do somethig ...
-    }
-}).catch(function(err){
-    
+$.post(_.host.baseApi + '/api/xxx',data: {}).then(function(data){
+   do somethig ...
 })
 ```
 #### 4.参数说明
@@ -128,6 +106,8 @@ $.post({
 | data  | isSign等于true或false，默认值为false，可根据情况删减。 |
 
 ### 三、域名环境控制
+
+考虑到一个项目不同模块不同域名的情况下：
 ```
 // 是否开发环境
 let isDev = false;
@@ -147,9 +127,11 @@ let pro = {
   // 抽奖api
   drawApi :  'xxx4.com'
 }
+
+export default isDev ? dev : pro
 ```
 
 ### 四、结尾
 
-以上只提供目录及公共方法，其它需自行开发。
+以上只提供目录模板及公共方法，其他需自行开发。
 微信小程序开发文档：[https://developers.weixin.qq.com/miniprogram/dev/reference/](https://developers.weixin.qq.com/miniprogram/dev/reference/ "微信小程序开发文档")
