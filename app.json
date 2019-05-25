@@ -37,10 +37,5 @@
     "uploadFile": 30000,
     "downloadFile": 30000
   },
-
-  // 跳转到其他小程序
-  "navigateToMiniProgramAppIdList": [
-    "appID"
-  ],
   "debug": true
 }
