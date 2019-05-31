@@ -7,9 +7,7 @@ class Request {
     constructor() {
 
         this.method = 'GET'
-        this.data = {
-            isSign : false // 是否需要签名
-        }
+        this.data = {}
         
     }
    
