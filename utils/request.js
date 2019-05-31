@@ -1,6 +1,4 @@
 
-import getPublicParams from './sign'
-
 class Request {
 
     /**
@@ -25,49 +23,37 @@ class Request {
         options.method ?  '' : options.method = this.method
 
         return new Promise((resolve, reject) => {
-
-            // 判断是否需要签名
-            if (options.data.isSign) {
-                getPublicParams(options.data).then(function(data){
-                    request(data);
-                })   
-            }else{
-                request(options.data);
-            }
-            function request(data){
-                wx.request({
-                    url: options.url,
-                    method: options.method,
-                    data: data,
-                    header: {
-                        'content-type': 'application/json'
-                    },
-                    success: (res) => {
-                        let data = res.data;
-
-                        // 根据请求状态码做相应的判断
-                        if (data.code == 1) {
-                            // 成功
-                            resolve(data)
-                        }else if (data.code == -400) {
-                            // token失效
-                            wx.removeStorageSync('userData');
-                            wx.navigateTo({
-                                url: '../auth/auth'
-                            })
-                            reject(res)
-                        }else {
-                            reject(res)
-                        }
-                    },
-                    fail: (err) => {
-                        reject(err)
-                    },
-                    complete: (res) => {
-                       
+            wx.request({
+                url: options.url,
+                method: options.method,
+                data: options.data,
+                header: {
+                    'content-type': 'application/json'
+                },
+                success: (res) => {
+                    let data = res.data;
+                    // 根据请求状态码做相应的判断
+                    if (data.code == 1) {
+                        // 成功
+                        resolve(data)
+                    }else if (data.code == -400) {
+                        // token失效
+                        wx.removeStorageSync('userData');
+                        wx.navigateTo({
+                            url: '../auth/auth'
+                        })
+                        reject(res)
+                    }else {
+                        reject(res)
                     }
-                })
-            }  
+                },
+                fail: (err) => {
+                    reject(err)
+                },
+                complete: (res) => {
+                   
+                }
+            })
         })
 
     }
