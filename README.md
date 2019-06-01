@@ -103,7 +103,7 @@ $.post(_.host.baseApi + '/api/xxx',data: {}).then(function(data){
 | 字段   |  字段说明 |
 |:------|:-------:|
 | method  | get或post，默认值为get | 
-| data  | isSign等于true或false，默认值为false，可根据情况删减。 |
+| data  | 可根据情况增加 |
 
 ### 三、域名环境控制
 
