@@ -5,26 +5,26 @@ class Request {
      * 默认属性
      */
     constructor() {
-
-        this.method = 'GET'
-        this.data = {}
-        
+        this.options = {
+            method: 'GET',
+            data:{}
+        }
     }
-   
+
     /**
      * GET、POST请求
      * @return Promise
      */
-    ajax(options = {}){
-
-        options.data = Object.assign({},options.data,this.data);
-        options.method ?  '' : options.method = this.method
-
+    ajax({
+         url,
+         method = this.options.method,
+         data = this.options.data} = this.options
+    ){
         return new Promise((resolve, reject) => {
             wx.request({
-                url: options.url,
-                method: options.method,
-                data: options.data,
+                url: url,
+                method: method,
+                data: data,
                 header: {
                     'content-type': 'application/json'
                 },
@@ -49,7 +49,7 @@ class Request {
                     reject(err)
                 },
                 complete: (res) => {
-                   
+
                 }
             })
         })
@@ -61,7 +61,7 @@ class Request {
      * @return Promise
      */
     get(url,data = {}){
-        
+
         return this.ajax({
            url,
            data,
@@ -69,7 +69,7 @@ class Request {
         })
 
     }
-    
+
     /**
      * POST请求
      * @return Promise
