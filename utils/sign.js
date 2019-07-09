@@ -7,52 +7,41 @@ import md5 from './md5'
  * @return Object
  */
 function _getPublicParams(){
-
-    let [vm, params] = [this, {}];
-    const res = wx.getSystemInfoSync();
-
-    params.x_system_version = res.system;
+    const params = {};
+    let {system, model} = wx.getSystemInfoSync();
+    params.x_system_version = system;
+    params.x_device_name = model;
     params.x_system_type = 'wx_xcx';
     params.x_app_version = '1000.1.1';
-    params.x_device_name = res.model;
     params.x_timestamp = new Date().getTime();
-
     return new Promise((resolve, reject) => {
         wx.getNetworkType({
           success: (res) => {
             params.x_app_network = res.networkType;
-            _.getDevice(function(deviceId){
+            _.getDevice((deviceId) => {
                 params.x_device_id = deviceId;
                 resolve(params)
-            })
+            });
           },
           fail: (err) => {
             reject(err)
           }
         })
     })
-    
 }
-
 
 /**
  * 生成签名
  * @return String
  */
 function buildParams(params){
-
-    let keys = '',
-        keyArr = [];
-    for (let key  in params) {
-        keyArr.push(key );
+    let keyArr = [];
+    for (let key in params) {
+        keyArr.push(key);
     }
     keyArr = keyArr.sort();
-    for (let i = 0; i < keyArr.length; i++) {
-       params[keyArr[i]] ? keys += keyArr[i] + '=' +params[keyArr[i]]+ '&' : '';
-    }
-    keys = keys.substring(0, keys.length - 1);
+    let keys = keyArr.map((v) => params[v] ? v + '=' +params[v] : '' ).join('&');
     return md5(keys);
-    
 }
 
 /**

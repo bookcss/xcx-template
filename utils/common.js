@@ -28,16 +28,6 @@ export default {
                 callback ? callback(str) : '';
             }
         })
-    },
-
-    /**
-     * 合并对象
-     */
-    extend(to, from) {
-        for (var key in from) {
-            to[key] = from[key];
-        }
-        return to;
     }
 
 }
