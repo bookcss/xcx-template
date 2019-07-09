@@ -8,7 +8,7 @@ let dev = {
   baseApi : 'xxx1.com',
   // 抽奖api
   drawApi :  'xxx2.com'
-}
+};
 
 // 线上环境域名
 let pro = {
@@ -16,6 +16,6 @@ let pro = {
   baseApi : 'xxx3.com',
   // 抽奖api
   drawApi :  'xxx4.com'
-}
+};
 
 export default isDev ? dev : pro

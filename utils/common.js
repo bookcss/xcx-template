@@ -1,6 +1,6 @@
 
-import host from './host'
-import md5 from './md5'
+import host from './host';
+import md5 from './md5';
 
 export default {
 

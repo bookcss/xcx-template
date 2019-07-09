@@ -1,4 +1,6 @@
 
+import getPublicParams from './sign';
+
 class Request {
 
     /**
@@ -21,6 +23,10 @@ class Request {
          data = this.options.data} = this.options
     ){
         return new Promise((resolve, reject) => {
+            // 获取公告参数
+            // getPublicParams(data).then( (data) => {
+            //     console.log(data);
+            // });
             wx.request({
                 url: url,
                 method: method,
@@ -53,7 +59,6 @@ class Request {
                 }
             })
         })
-
     }
 
     /**
@@ -61,13 +66,11 @@ class Request {
      * @return Promise
      */
     get(url,data = {}){
-
         return this.ajax({
            url,
            data,
            method:'GET'
         })
-
     }
 
     /**
@@ -75,13 +78,11 @@ class Request {
      * @return Promise
      */
     post(url,data = {}){
-
         return this.ajax({
            url,
            data,
            method:'POST'
         })
-
     }
 
 }

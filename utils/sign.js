@@ -1,6 +1,6 @@
 
-import _ from './common'
-import md5 from './md5'
+import _ from './common';
+import md5 from './md5';
 
 /**
  * 获取公共参数
@@ -50,7 +50,7 @@ function buildParams(params){
  */
 function getPublicParams(data){
     return new Promise((resolve, reject) => {
-        _getPublicParams().then(function(params){
+        _getPublicParams().then((params) => {
             // 公共参数
             for (let key in params) {
               data[key] = params[key];
