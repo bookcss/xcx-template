@@ -23,7 +23,7 @@ class Request {
          data = this.options.data} = this.options
     ){
         return new Promise((resolve, reject) => {
-            // 获取公告参数
+            // 获取公共参数
             // getPublicParams(data).then( (data) => {
             //     console.log(data);
             // });

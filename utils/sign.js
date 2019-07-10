@@ -38,9 +38,9 @@ function _getPublicParams(){
  */
 function buildParams(params){
     let keyArr = [];
-    for (let key in params) {
+    for (let key in params) {
         keyArr.push(key);
-    }
+    }
     keyArr = keyArr.sort();
     let keys = keyArr.map((v) => params[v] ? v + '=' +params[v] : '' ).join('&');
     return md5(keys);
