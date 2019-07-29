@@ -1,10 +1,9 @@
-
 import _ from './common';
 import md5 from './md5';
 
 /**
  *
- * @returns Promise
+ * @returns {Promise}
  * @private
  */
 function _getPublicParams(){
@@ -34,7 +33,7 @@ function _getPublicParams(){
 /**
  * 生成签名
  * @param params
- * @returns String
+ * @returns {*}
  */
 function buildParams(params){
     let keyArr = [];
@@ -49,7 +48,7 @@ function buildParams(params){
 /**
  * 将公共参数生成签名
  * @param data
- * @returns Promise
+ * @returns {Promise}
  */
 function getPublicParams(data){
     return new Promise((resolve, reject) => {

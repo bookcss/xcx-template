@@ -4,7 +4,7 @@ import getPublicParams from './sign';
 class Request {
 
     /**
-     * 默认属性
+     * 基本属性
      */
     constructor() {
         this.options = {
@@ -15,7 +15,10 @@ class Request {
 
     /**
      * GET、POST请求
-     * @return Promise
+     * @param url
+     * @param method
+     * @param data
+     * @returns {Promise}
      */
     ajax({
          url,
@@ -63,7 +66,9 @@ class Request {
 
     /**
      * GET请求
-     * @return Promise
+     * @param url
+     * @param data
+     * @returns {Promise}
      */
     get(url,data = {}){
         return this.ajax({
@@ -75,7 +80,9 @@ class Request {
 
     /**
      * POST请求
-     * @return Promise
+     * @param url
+     * @param data
+     * @returns {Promise}
      */
     post(url,data = {}){
         return this.ajax({
